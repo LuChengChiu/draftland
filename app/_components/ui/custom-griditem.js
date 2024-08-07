@@ -9,16 +9,16 @@ import {
 
 export default function CustomGridItem({
   area,
-  row = 1,
-  col = 1,
-  bg = "#FFF",
+  bgGradient,
   href = "",
   img,
   alt,
   title = "",
 }) {
+  const slogan = title.includes("on");
+
   return (
-    <GridItem bg={bg} rounded="20px" area={area}>
+    <GridItem bgGradient={bgGradient} rounded="20px" border="0" area={area}>
       <ChakraLink
         as={Link}
         href={href}
@@ -34,8 +34,6 @@ export default function CustomGridItem({
         <Image
           w={alt === "logo" ? "auto" : "100%"}
           h={alt === "logo" ? "auto" : "100%"}
-          //   w="50px"
-          //   h="50px"
           src={img.src}
           alt={alt}
           rounded="18px"
@@ -52,14 +50,18 @@ export default function CustomGridItem({
             fontStyle="italic"
             textAlign="center"
             textTransform="uppercase"
-            lineHeight="30px"
+            lineHeight={slogan ? "35px" : "30px"}
             userSelect="none"
-            opacity="0"
+            opacity={slogan ? 1 : 0}
             transition="all 300ms ease-in-out"
-            border="1px solid #FFF"
-            backdropFilter="blur(3px)"
+            border={slogan ? "0" : "1px solid #FFF"}
+            backdropFilter={slogan ? "blur(1px)" : "blur(3px)"}
           >
-            {title}
+            {slogan ? title.slice(0, 10) : title}
+            <Text as="span" display="inline" borderBottom="2px solid #FFF">
+              {slogan && title.slice(10, 12)}
+            </Text>{" "}
+            {slogan && title.slice(13, title.length)}
           </Text>
         )}
       </ChakraLink>
