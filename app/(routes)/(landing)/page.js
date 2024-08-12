@@ -1,8 +1,7 @@
-import { Center, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import CustomGrid from "@/app/_components/home/custom-grid";
 
 export default function Landing() {
-  const data = {};
   return (
     <Flex
       w="100dvw"

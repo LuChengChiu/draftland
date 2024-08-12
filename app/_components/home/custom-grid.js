@@ -8,7 +8,11 @@ import {
 import Link from "next/link";
 
 import logo from "@/app/_assets/logo.webp";
-import homeCarousel1 from "@/app/_assets/home-carousel-1.webp";
+import carousel1 from "@/app/_assets/home-carousel-1.webp";
+import carousel2 from "@/app/_assets/home-carousel-2.webp";
+import carousel3 from "@/app/_assets/home-carousel-3.webp";
+import carousel4 from "@/app/_assets/home-carousel-4.webp";
+
 import story from "@/app/_assets/story.webp";
 import testing from "@/app/_assets/testing.webp";
 import draftland from "@/app/_assets/draftland.jpg";
@@ -21,6 +25,12 @@ import igIcon from "@/app/_assets/instagram.svg";
 import CustomGridItem from "../ui/custom-griditem";
 
 export default function CustomGrid() {
+  const images = [
+    { img: carousel1, alt: "carousel-image-1" },
+    { img: carousel2, alt: "carousel-image-2" },
+    { img: carousel3, alt: "carousel-image-3" },
+    { img: carousel4, alt: "carousel-image-4" },
+  ];
   return (
     <Grid
       w="100%"
@@ -58,19 +68,8 @@ export default function CustomGrid() {
         area="logo"
         bgGradient="linear(to-b, #ebf4f5, #b5c6e0)"
       />
-      <CustomGridItem
-        img={onTap}
-        alt="slogan"
-        area="slogan"
-        title="cocktails on tap"
-      />
-      <CustomGridItem
-        href="#"
-        img={story}
-        alt="story-image"
-        title="story"
-        area="story"
-      />
+      <CustomGridItem img={onTap} area="slogan" title="cocktails on tap" />
+      <CustomGridItem href="#" img={story} title="story" area="story" />
       <CustomGridItem
         row={2}
         href="#"
@@ -78,18 +77,11 @@ export default function CustomGrid() {
         title={`testing\nroom`}
         area="testing"
       />
-      <CustomGridItem
-        row={2}
-        col={2}
-        img={homeCarousel1}
-        alt="carousel-image-1"
-        area="carousel"
-      />
+      <CustomGridItem row={2} col={2} img={images} area="carousel" />
       <CustomGridItem
         col={2}
         href="#"
         img={draftland}
-        alt="draftland-image"
         title="draftland"
         area="draftland"
       />
@@ -97,17 +89,10 @@ export default function CustomGrid() {
         col={2}
         href="#"
         img={dailyDraftland}
-        alt="dailyDraftland-image"
         title="daily by draftland"
         area="daily"
       />
-      <CustomGridItem
-        href="#"
-        img={recruit}
-        alt="recruit-image"
-        title="recruit"
-        area="recruit"
-      />
+      <CustomGridItem href="#" img={recruit} title="recruit" area="recruit" />
       <GridItem
         as={VStack}
         area="link"
@@ -119,7 +104,11 @@ export default function CustomGrid() {
         justifyContent="center"
         display={{ base: "grid", md: "none" }}
       >
-        <ChakraLink as={Link} href="#" w="50px">
+        <ChakraLink
+          as={Link}
+          href="https://www.instagram.com/draftland/"
+          w="50px"
+        >
           <Image
             src={fbIcon.src}
             alt="facebook-link"
@@ -129,7 +118,11 @@ export default function CustomGrid() {
             aspectRatio="1/1"
           />
         </ChakraLink>
-        <ChakraLink as={Link} href="#" w="50px">
+        <ChakraLink
+          as={Link}
+          href="https://www.facebook.com/draftland"
+          w="50px"
+        >
           <Image
             src={igIcon.src}
             alt="facebook-link"
